@@ -9,19 +9,35 @@ namespace PrezentacniProjekt
 {
     /// <summary>
     /// Handles basic authentication by validating credentials from the Authorization header.
-    /// TODO: Replace the simple credential validation logic with your actual user validation mechanism before using in production.
-    /// PLAN: DB for quick implementation. Better: learn how to use azure key vault for storing credentials securely and implement proper user management.
+    /// Credentials are retrieved from environment variables for security.
     /// </summary>
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
+        private readonly IConfiguration _configuration;
+        private readonly string _validUsername;
+        private readonly string _validPassword;
+
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
-            UrlEncoder encoder)
+            UrlEncoder encoder,
+            IConfiguration configuration)
             : base(options, logger, encoder)
         {
+            _configuration = configuration;
+            
+            // Get environment variable names from configuration
+            var usernameEnvVar = _configuration.GetValue<string>("AuthSettings:UsernameEnvVar") 
+                ?? throw new InvalidOperationException("AuthSettings:UsernameEnvVar is not set in configuration.");
+            var passwordEnvVar = _configuration.GetValue<string>("AuthSettings:PasswordEnvVar") 
+                ?? throw new InvalidOperationException("AuthSettings:PasswordEnvVar is not set in configuration.");
+            
+            // Get actual credentials from environment variables
+            _validUsername = Environment.GetEnvironmentVariable(usernameEnvVar) 
+                ?? throw new InvalidOperationException($"Environment variable '{usernameEnvVar}' is not set.");
+            _validPassword = Environment.GetEnvironmentVariable(passwordEnvVar) 
+                ?? throw new InvalidOperationException($"Environment variable '{passwordEnvVar}' is not set.");
         }
-
 
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
@@ -51,9 +67,9 @@ namespace PrezentacniProjekt
                 if (IsValidUser(username, password))
                 {
                     var claims = new[] {
-                new Claim(ClaimTypes.NameIdentifier, username),
-                new Claim(ClaimTypes.Name, username),
-            };
+                        new Claim(ClaimTypes.NameIdentifier, username),
+                        new Claim(ClaimTypes.Name, username),
+                    };
                     var identity = new ClaimsIdentity(claims, Scheme.Name);
                     var principal = new ClaimsPrincipal(identity);
                     var ticket = new AuthenticationTicket(principal, Scheme.Name);
@@ -71,9 +87,7 @@ namespace PrezentacniProjekt
 
         private bool IsValidUser(string username, string password)
         {
-            // TODO: Replace with your actual user validation logic
-            // This is a simple example - DO NOT use in production!
-            return username == "admin" && password == "password";
+            return username == _validUsername && password == _validPassword;
         }
     }
 }
