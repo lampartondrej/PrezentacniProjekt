@@ -9,15 +9,11 @@ namespace PrezentacniProjekt
 {
     /// <summary>
     /// Handles basic authentication by validating credentials from the Authorization header.
+    /// TODO: Replace the simple credential validation logic with your actual user validation mechanism before using in production.
+    /// PLAN: DB for quick implementation. Better: learn how to use azure key vault for storing credentials securely and implement proper user management.
     /// </summary>
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasicAuthenticationHandler"/> class.
-        /// </summary>
-        /// <param name="options">The monitor for the authentication scheme options.</param>
-        /// <param name="logger">The factory for creating loggers.</param>
-        /// <param name="encoder">The URL encoder.</param>
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
@@ -26,12 +22,7 @@ namespace PrezentacniProjekt
         {
         }
 
-        /// <summary>
-        /// Authenticates the request by parsing and validating the Basic authentication credentials from the Authorization header.
-        /// </summary>
-        /// <returns>
-        /// An <see cref="AuthenticateResult"/> indicating whether authentication succeeded or failed.
-        /// </returns>
+
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
@@ -57,7 +48,6 @@ namespace PrezentacniProjekt
                 var username = credentials[0];
                 var password = credentials[1];
 
-                // Validate credentials (replace with your own logic)
                 if (IsValidUser(username, password))
                 {
                     var claims = new[] {
@@ -79,18 +69,6 @@ namespace PrezentacniProjekt
             }
         }
 
-        /// <summary>
-        /// Validates the provided username and password credentials.
-        /// </summary>
-        /// <param name="username">The username to validate.</param>
-        /// <param name="password">The password to validate.</param>
-        /// <returns>
-        /// <c>true</c> if the credentials are valid; otherwise, <c>false</c>.
-        /// </returns>
-        /// <remarks>
-        /// This is a simple example implementation for demonstration purposes only.
-        /// Replace with actual user validation logic before using in production.
-        /// </remarks>
         private bool IsValidUser(string username, string password)
         {
             // TODO: Replace with your actual user validation logic

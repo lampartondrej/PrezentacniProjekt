@@ -1,14 +1,30 @@
 ﻿namespace PrezentacniProjekt.Shared.Model.DTOs.Weatherstack.Forecast.Response
 {
     /// <summary>
-    /// Represents the forecast collection from the Weatherstack API response.
-    /// Contains weather forecast data organized by date.
+    /// Represents the forecast data container with dynamic date keys.
     /// </summary>
-    public class ForecastWeatherResponseForecast
+    public class ForecastWeatherResponseForecast : Dictionary<string, ForecastWeatherResponseDay>
     {
         /// <summary>
-        /// Gets or sets the weather forecast data for March 15, 2026.
+        /// Gets the forecast for a specific date.
         /// </summary>
-        public ForecastWeatherResponse_20260315? _20260315 { get; set; }
+        /// <param name="date">The date in format yyyy-MM-dd or yyyyMMdd</param>
+        /// <returns>The forecast data if found, null otherwise</returns>
+        public ForecastWeatherResponseDay? GetForecastByDate(string date)
+        {
+            var key = date.Replace("-", "");
+            return this.TryGetValue(key, out var forecast) ? forecast : null;
+        }
+
+        /// <summary>
+        /// Gets the forecast for a specific date.
+        /// </summary>
+        /// <param name="date">The date</param>
+        /// <returns>The forecast data if found, null otherwise</returns>
+        public ForecastWeatherResponseDay? GetForecastByDate(DateTime date)
+        {
+            var key = date.ToString("yyyyMMdd");
+            return this.TryGetValue(key, out var forecast) ? forecast : null;
+        }
     }
 }

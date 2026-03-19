@@ -9,12 +9,6 @@ namespace PrezentacniProjekt.RestApi.CustomHelpers
     /// </summary>
     public class BuildUriStringForWeatherstack
     {
-        /// <summary>
-        /// Builds a URI query string for current weather API requests.
-        /// </summary>
-        /// <param name="currentRequest">The current weather request containing location and optional parameters.</param>
-        /// <returns>A formatted query string with location and optional parameters.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when URI building fails.</exception>
         public string BuildUriForCurrentWeather(GetCurrentWeatherRequest currentRequest)
         {
             try
@@ -37,17 +31,10 @@ namespace PrezentacniProjekt.RestApi.CustomHelpers
             }
             catch (Exception ex)
             {
-                // Handle exceptions
                 throw new InvalidOperationException("Failed to build URI for current weather", ex);
             }
         }
 
-        /// <summary>
-        /// Builds a URI query string for forecast weather API requests.
-        /// </summary>
-        /// <param name="forecastRequest">The forecast weather request containing location and optional parameters.</param>
-        /// <returns>A formatted query string with location and optional forecast parameters.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when URI building fails.</exception>
         public string BuildUriForForecastWeather(GetForecastWeatherRequest forecastRequest)
         {
             try
@@ -82,9 +69,7 @@ namespace PrezentacniProjekt.RestApi.CustomHelpers
             }
             catch (Exception ex)
             {
-                // Handle exceptions
                 throw new InvalidOperationException("Failed to build URI for forecast weather", ex);
-
             }
         }
     }
