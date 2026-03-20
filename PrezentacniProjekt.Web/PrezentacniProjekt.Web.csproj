@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.3.9" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <ProjectReference Include="..\PrezentacniProjekt.Shared\PrezentacniProjekt.Shared.Model.csproj" />
   </ItemGroup>
 
 </Project>

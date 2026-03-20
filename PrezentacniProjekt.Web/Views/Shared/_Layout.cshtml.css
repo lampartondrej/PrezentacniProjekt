@@ -1,0 +1,67 @@
+﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0077cc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+.morning {
+    background: #b2ede6;
+    background: linear-gradient(6deg, rgba(178, 237, 230, 1) 33%, rgba(253, 187, 45, 1) 100%);
+}
+
+.midday {
+    background: #b2b5ed;
+    background: linear-gradient(359deg, rgba(178, 181, 237, 1) 45%, rgba(255, 247, 153, 1) 100%);
+}
+
+.evening {
+    background: #5254de;
+    background: linear-gradient(338deg, rgba(82, 84, 222, 1) 45%, rgba(220, 167, 172, 1) 89%, rgba(209, 179, 113, 1) 100%);
+}
+.night {
+    background: #ffffff;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(15, 16, 33, 1) 37%);
+}
