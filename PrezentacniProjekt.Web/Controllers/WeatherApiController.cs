@@ -29,10 +29,10 @@ namespace PrezentacniProjekt.Web.Controllers
             _logger = logger;
 
             // Get environment variable names from configuration
-            var usernameEnvVar = _configuration.GetValue<string>("ApiSettings:UsernameEnvVar")
-                ?? throw new InvalidOperationException("ApiSettings:UsernameEnvVar is not set in configuration.");
-            var passwordEnvVar = _configuration.GetValue<string>("ApiSettings:PasswordEnvVar")
-                ?? throw new InvalidOperationException("ApiSettings:PasswordEnvVar is not set in configuration.");
+            var usernameEnvVar = _configuration.GetValue<string>("AuthSettings:UsernameEnvVar")
+                ?? throw new InvalidOperationException("AuthSettings:UsernameEnvVar is not set in configuration.");
+            var passwordEnvVar = _configuration.GetValue<string>("AuthSettings:PasswordEnvVar")
+                ?? throw new InvalidOperationException("AuthSettings:PasswordEnvVar is not set in configuration.");
 
             // Get actual credentials from environment variables
             _apiUsername = Environment.GetEnvironmentVariable(usernameEnvVar)
