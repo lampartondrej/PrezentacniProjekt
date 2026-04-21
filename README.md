@@ -89,4 +89,3 @@ dotnet test
 ## 📎 Notes
 
 * This project is intended for demonstration purposes and is not production-ready.
-* Sensitive data (such as API keys or credentials) should not be logged.
