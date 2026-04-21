@@ -1,4 +1,3 @@
-//TODO: Add screenshots/screenshare b4 master PR
 # 🌦️ Weather Forecast App (.NET)
 
 A modern **ASP.NET Core application** for retrieving current weather and forecasts using an external API.
