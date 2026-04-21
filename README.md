@@ -59,9 +59,9 @@ The system is designed to separate concerns between presentation, business logic
 
 ## 🖼️ Screenshots
 
-### Current page
+### Current view
 
-![Main page](./docs/screenshots/current.png)
+![Current](./docs/screenshots/current.png)
 
 ### Forecast view
 
