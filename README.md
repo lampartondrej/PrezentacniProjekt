@@ -5,26 +5,29 @@
 
 ## 📌 Overview
 
-This project is a **.NET backend showcase application** demonstrating integration with the Weatherstack API.
+This project is a **.NET showcase application** built around integration with the **Weatherstack API**.
 
-It is designed as a **portfolio project for junior / junior+ backend developer roles**.
+It was created as a **portfolio project for junior / junior+ backend developer roles**, with focus on clean project structure, external API integration, basic authentication, resilience, caching, and testability.
 
 The solution consists of:
 
 * `ShowcaseProject.Rest` – REST API backend
-* `ShowcaseProject.Web` – MVC frontend
+* `ShowcaseProject.Web` – MVC frontend consuming the REST API
 * `ShowcaseProject.Shared` – shared DTOs and models
-* `ShowcaseProject.Tests` – integration tests
+* `ShowcaseProject.Tests` – automated tests
 
 ## 🚀 Features
 
-* External API integration (Weatherstack)
+* External API integration with Weatherstack
+* REST API built with ASP.NET Core
+* MVC frontend for manual testing / presentation
 * Basic Authentication
 * Resilience using Polly
 * In-memory caching
 * Swagger (OpenAPI)
 * Health checks
-* Integration testing
+* Structured logging
+* Automated testing
 
 ## ⚙️ Setup
 
@@ -53,6 +56,8 @@ dotnet run --project ShowcaseProject.Rest
 dotnet run --project ShowcaseProject.Web
 ```
 
+5. Open Swagger UI after startup to test the REST API endpoints.
+
 ## 🔐 Authentication
 
 The API uses **Basic Authentication**.
@@ -62,15 +67,19 @@ Credentials must be provided via environment variables:
 * `ShowcaseProjectApiUsername`
 * `ShowcaseProjectApiPassword`
 
+Authenticated requests must include the `Authorization` header in Basic Auth format.
+
 ## 🧪 Testing
 
-Run tests:
+Run all tests:
 
 ```bash
 dotnet test
 ```
 
-## Screenshots
+The test project validates the main application flow and selected backend behaviors.
+
+## 📸 Screenshots
 
 ### Current Weather View
 
@@ -84,8 +93,11 @@ dotnet test
 
 ![Swagger](./docs/screenshots/swagger.png)
 
-> Note: depending on the external provider plan, forecast support may be limited. In this project, the architecture and endpoint flow are implemented regardless of provider-tier constraints.
+> Note: depending on the external provider plan, forecast support may be limited.
+> In this project, the architecture and endpoint flow are implemented regardless of provider-tier constraints.
 
 ## 📎 Notes
 
-* This project is intended for demonstration purposes and is not production-ready.
+* This project is intended for demonstration purposes and as a portfolio showcase.
+* It is not intended to be treated as a production-ready system.
+* The main goal is to demonstrate backend-oriented development practices in a small but complete .NET solution.
