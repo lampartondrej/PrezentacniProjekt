@@ -115,6 +115,24 @@ The retry state is clearly communicated (including attempt count), improving tra
 
 ---
 
+### 📱 Mobile Layout
+
+The UI is fully responsive and optimized for mobile devices.  
+Layout adapts to smaller screens with stacked components and improved readability.
+
+![Mobile](./docs/screenshots/mobile.png)
+
+---
+
+### 💻 Tablet Layout
+
+The application also supports tablet view, balancing between desktop and mobile layouts.  
+Components are reorganized to utilize available space while maintaining clarity.
+
+![Tablet](./docs/screenshots/tablet.png)
+
+---
+
 > Note: depending on the external provider plan, forecast support may be limited.  
 > In this project, the architecture and endpoint flow are implemented regardless of provider-tier constraints.
 
