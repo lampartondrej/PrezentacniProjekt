@@ -1,6 +1,6 @@
 # Weatherstack API Showcase Project
 
-> ⚠️ **Note:** This project was previously named *PrezentacniProjekt*.
+> ⚠️ **Note:** This project was previously named *PrezentacniProjekt*.  
 > Any remaining references to the old name are considered deprecated.
 
 ## 📌 Overview
@@ -93,7 +93,29 @@ The test project validates the main application flow and selected backend behavi
 
 ![Swagger](./docs/screenshots/swagger.png)
 
-> Note: depending on the external provider plan, forecast support may be limited.
+---
+
+## 🎨 UI Showcase
+
+### 🌅 Dynamic Background (Time of Day)
+
+The application dynamically updates its background gradient based on the time of day (morning, afternoon, evening, night).  
+This enhances the user experience by visually reflecting real-world conditions and creating a more immersive interface.
+
+![Dynamic Background](./docs/screenshots/BG.png)
+
+---
+
+### 🔄 Retry Mechanism (Frontend Feedback)
+
+In case of a failed request, the frontend automatically retries the operation and provides visual feedback to the user.  
+The retry state is clearly communicated (including attempt count), improving transparency and overall UX.
+
+![Retry Mechanism](./docs/screenshots/retry.png)
+
+---
+
+> Note: depending on the external provider plan, forecast support may be limited.  
 > In this project, the architecture and endpoint flow are implemented regardless of provider-tier constraints.
 
 ## 📎 Notes
