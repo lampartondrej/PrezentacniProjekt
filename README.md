@@ -1,8 +1,5 @@
 # Weatherstack API Showcase Project
 
-> ⚠️ **Note:** This project was previously named *PrezentacniProjekt*.  
-> Any remaining references to the old name are considered deprecated.
-
 ## 📌 Overview
 
 This project is a **.NET showcase application** built around integration with the **Weatherstack API**.
